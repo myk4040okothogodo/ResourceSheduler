@@ -1,0 +1,28 @@
+version: '3' # specify docker-compose version
+
+services:    # deploy  requires two services , app services and db service
+  app:
+    container_name: assetsAPI
+    build: .   # build image using our current directory which will use our Dockerfile
+    ports:
+      - 9092:9092   #exposing port 8080 from our app service(container) to our local machine
+    restart: on-failure   # restart policy set to restart oon failure
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    links:
+      - db
+
+  db:
+    image: postgres
+    container_name: assetsAPI_db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "mykokothe"
+      POSTGRES_DB: "assetsapi"
+      TZ: 'EAT'
+      PGTZ: 'EAT'
+

@@ -19,6 +19,7 @@ var ErrAssetNotDeleted = fmt.Errorf("Asset not Deleted")
 
 
 type Asset struct {
+  gorm.Model
 	// the id for the product
 	//
 	// required: false
