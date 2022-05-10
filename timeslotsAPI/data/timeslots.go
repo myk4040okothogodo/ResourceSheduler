@@ -7,6 +7,14 @@ import (
     "gorm.io/driver/postgres"
     "github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data"
 )
+// ErrTimeSlot is an error raised when then timeslot has not been found
+var ErrTimeSlotNotFound = fmt.Errorf("TimeSlot not found")
+// ErrTimeSlotNotCreated is an error raised when a timeslot is not successfully created
+var ErrTimeSlotNotCreated = fmt.Errorf("TimeSlot not created")
+// ErrTimeSLotNotDeleted is an error raised when a timeslot is not successfully deleted
+var ErrTimeSlotNotDeleted = fmt.Errorf("TimeSlot not deleted")
+//ErrActiveTimeSlotNotFound is an error when an asset user or owner deosnt have an active timeslot
+var ErrActiveTimeSlotNotFound = fmt.Errorf("Active timeslot not Found")
 
 type TimeSlotState string
 

@@ -10,7 +10,7 @@ import (
     gohandlers "github.com/gorilla/handlers"
     "github.com/gorilla/mux"
     handlers "github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/handlers"
-    "github.com/myk4040okothogodo/ReesourceScheduler/timeslotsAPI/data"
+    "github.com/myk4040okothogodo/ReesourceScheduler/assetsAPI/data"
 )
 
 
@@ -33,6 +33,7 @@ func main() {
     getT := sm.Methods(http.MethodGet).Subrouter()
     getT.HandleFunc("/timeslots", th.ListAll )
     getT.HandleFunc("/timeslots/{id:[0-9]+}", th.ListSingle)
+    getT.HandleFunc("/timeslots/{id[0-9]+}", th.ListOwnerActiveTimeSlots)
 
 
     putT := sm.Methods(http.MethodPut).Subrouter()
