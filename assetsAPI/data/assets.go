@@ -4,6 +4,8 @@ import (
 	"fmt"
   "gorm.io/gorm"
   "gorm.io/driver/postgres"
+  "github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data"
+
 )
 
 
@@ -48,9 +50,16 @@ type Asset struct {
 	//
 	// required: true
 	// pattern: [a-z]+-[a-z]+-[a-z]+
-	SKU string `json:"sku" validate:"sku"`
+  Owner User   `json:"owner" validate: "required"`
 }
 
+
+type User struct {
+    gorm.Model
+    name string `json: "name" gorm:"size:120;unique" validate: "required"`
+    email string  `json: "email" gorm:"size:120"`
+    phone_number string `json: "phone_number" gorm: "size: 20"`
+}
 
 func Init() (*gorm.DB,error) {
     dbURL := "host=localhost user=postgres password=mykokothe dbname=assetsgo port=5432 sslmode=disable TimeZone=Asia/Shanghai"

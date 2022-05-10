@@ -4,7 +4,7 @@ import (
     "context"
     "net/http"
     "github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data"
-)
+  )
 
 //MiddlewareValidateAsset validated the asset in the request and calls next if ok
 func (a *Assets) MiddlewareValidateAsset(next http.Handler) http.Handler {

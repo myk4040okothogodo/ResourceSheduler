@@ -54,7 +54,7 @@ func main() {
 
     postA := sm.Methods(http.MethodPost).Subrouter()
     postA.HandleFunc("/assets", ah.Create)
-    postA.Use(ah.MiddlewareValidateAsset)
+
 
     deleteA := sm.Methods(http.MethodDelete).Subrouter()
     deleteA.HandleFunc("/assets/{id:[0-9]+}", ah.Delete)
