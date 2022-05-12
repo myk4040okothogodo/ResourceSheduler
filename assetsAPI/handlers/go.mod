@@ -4,12 +4,10 @@ go 1.17
 
 replace github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data => ../data
 
-replace github.com/myk4040okothogodo/ResourceSheduler/protos/assetsdefinition/protos => ../../protos/assetsdefinition/protos
 
 require (
 	github.com/gorilla/mux v1.8.0
 	github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-00010101000000-000000000000
-	github.com/myk4040okothogodo/ResourceSheduler/protos/assetsdefinition/protos v0.0.0-00010101000000-000000000000
 )
 
 require (

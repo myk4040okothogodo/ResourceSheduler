@@ -6,8 +6,7 @@ import (
     "net/http"
     "strconv"
     "github.com/gorilla/mux"
-    protos "github.com/myk4040okothogodo/ResourceSheduler/protos/assetsdefinition/protos"
-    data "github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data"
+    data "github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data"
 )
 
 //Keytimeslot is a kkey used for the TimeSlot asset object in the context

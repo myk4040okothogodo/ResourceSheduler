@@ -2,8 +2,7 @@ package handlers
 import (
     "fmt"
     "context"
-    "net/http"
-    protos "github.com/myk4040okothogodo/ResourceSheduler/protos/assetsdefinition/protos " 
+    "net/http" 
     "github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data"
 )
 

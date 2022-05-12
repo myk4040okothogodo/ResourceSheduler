@@ -10,7 +10,7 @@ import (
     gohandlers "github.com/gorilla/handlers"
     "github.com/gorilla/mux"
     handlers "github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/handlers"
-    "github.com/myk4040okothogodo/ReesourceScheduler/assetsAPI/data"
+    "github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data"
 )
 
 

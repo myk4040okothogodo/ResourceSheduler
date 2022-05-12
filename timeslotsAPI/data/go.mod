@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/go-playground/validator v9.31.0+incompatible
-	github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-20220508195426-e727a527918d
+	github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-20220510121711-64babcf51887
 	gorm.io/driver/postgres v1.3.5
 	gorm.io/gorm v1.23.5
 )

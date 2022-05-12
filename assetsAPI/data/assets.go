@@ -1,13 +1,10 @@
 package data
 
 import (
-	"fmt"
-  "gorm.io/gorm"
-  "gorm.io/driver/postgres"
-  "github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data"
-
+    "fmt"
+    "gorm.io/gorm"
+    "gorm.io/driver/postgres"
 )
-
 
 
 // ErrProductNotFound is an error raised when a product can not be found in the database
@@ -50,7 +47,7 @@ type Asset struct {
 	//
 	// required: true
 	// pattern: [a-z]+-[a-z]+-[a-z]+
-  Owner User   `json:"owner" validate: "required"`
+        Owner User   `json:"owner" validate: "required"`
 }
 
 
@@ -113,19 +110,10 @@ func (c Connecting)GetAssetByID(id int) (*Asset, error) {
   }
   return asset, nil
 
-
-  //i := findIndexByAssetID(id)
-	//if id == -1 {
-	//	return nil, ErrAssetNotFound
-	//}
-
-	//return assetList[i], nil
 }
 
 // UpdateProduct replaces a product in the database with the given
-// item.
-// If a product with the given id does not exist in the database
-// this function returns a ProductNotFound error
+// item
 func (c Connecting)UpdateAsset(p Asset, i int) error {
 
    if result := c.DB.First(&p, i); result.Error != nil {
@@ -133,15 +121,6 @@ func (c Connecting)UpdateAsset(p Asset, i int) error {
    }
    
    c.DB.Save(&p)
-   //log.println("Suceesfully updated")
-	//i := findIndexByAssetID(p.ID)
-	//if i == -1 {
-	//	return ErrAssetNotFound
-	//}
-
-	// update the product in the DB
-	//assetList[i] = &p
-
 	return nil
 }
 
@@ -151,12 +130,6 @@ func (c Connecting)AddAsset(p Asset) error {
   if result := c.DB.Create(&p); result.Error != nil {
       return ErrAssetNotCreated
   }
-
-  //log.println("Successfully added!")
-	// get the next id in sequence
-	//maxID := assetList[len(assetList)-1].ID
-	//p.ID = maxID + 1
-	//assetList = append(assetList, &p)
   return nil
 }
 
@@ -167,47 +140,9 @@ func (c Connecting)DeleteAsset(id int) error {
   if result := c.DB.First(&asset, id); result.Error != nil {
       return ErrAssetNotDeleted;
   }
-  //
   c.DB.Delete(&asset)
-
-  //log.println("Successfully deleted!")
-	//i := findIndexByAssetID(id)
-	//if i == -1 {
-	//	return ErrAssetNotFound
   return nil
 }
-	//assetList = append(assetList[:i], assetList[i+1])
-
-	//return nil
-//}
-
-// findIndex finds the index of a product in the database
-// returns -1 when no product can be found
-func (c Connecting)findIndexByAssetID(id int) int {
-	for i, p := range assetList {
-		if p.ID == id {
-			return i
-		}
-	}
-
-	return -1
-}
-
-var assetList = []*Asset{
-	&Asset{
-		ID:          1,
-		Name:        "LandCruiser 200",
-		Description: "A perfect off-roading machine",
-		Price:        2400,
-		SKU:         "abc323",
-	},
-	&Asset{
-		ID:          2,
-		Name:        "A CAT Grader",
-		Description: "a road grading machine used for civil works",
-		Price:       1999,
-		SKU:         "fjd34",
-	},
-}
+	
 
 

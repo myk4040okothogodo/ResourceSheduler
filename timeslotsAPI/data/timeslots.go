@@ -9,6 +9,8 @@ import (
 )
 // ErrTimeSlot is an error raised when then timeslot has not been found
 var ErrTimeSlotNotFound = fmt.Errorf("TimeSlot not found")
+// ErrTimeSlotsNotFounf is an error raised when the timeslots have not been found
+var ErrTimeSlotsNotFound = fmt.Errorf("TimeSlots not found")
 // ErrTimeSlotNotCreated is an error raised when a timeslot is not successfully created
 var ErrTimeSlotNotCreated = fmt.Errorf("TimeSlot not created")
 // ErrTimeSLotNotDeleted is an error raised when a timeslot is not successfully deleted
@@ -41,16 +43,12 @@ type TimeSlot struct {
   State    TimeSlotState     `json: "state"     validate: "required"`
   // The creator or user of this timeslot, the booking party
   // required : true
-  Owners   User      `json: "owners"    validate: "required"`  
+  //Owners   User      `json: "owners"    validate: "required"`  
   // payments or job orders attached to this timeslot, a timeslot cannot be booked with being paid for
   // required : trure
   Link   *Payment   `json: "payment" validate: "required"`
 }
 
-type Payment struct {
-    gorm.Model
-    Asset Asset
-}
 
 type Payment struct {
     gorm.Model
@@ -65,18 +63,18 @@ type Payment struct {
     asset   *Asset    `json: "asset", validate: "required"`
     // its related to which owner
     // required : true
-    owner  *User      `json: "owner",  validate: "required"`
+    //owner  *User      `json: "owner",  validate: "required"`
 }
 
 
 //Timeslots defines a slice of Timeplot
-type Timeslots get []*TimeSlot
+type Timeslots []*TimeSlot
 
 //GetTimeSlots return all timeslots from the database
 func (c Connecting)GetTimeSlots() (TimeSlots, error) {
     var timeslots TimeSlots
     if result := c.DB.Find(&timeslots); result.Error  != nil {
-        return nil, ErrTimeslotsNotFound
+        return nil, ErrTimeSlotsNotFound
     }
     return timeslots, nil
 }
@@ -84,7 +82,7 @@ func (c Connecting)GetTimeSlots() (TimeSlots, error) {
 
 func (c Connecting) UpdatetimeSlot(t TimeSlot, i int ) error {
     if result := c.DB.First(&t, i); result.Error != nil {
-        result ErrTimeSlotNotFound
+        return ErrTimeSlotNotFound
     }
     c.DB.Save(&t)
     return nil
@@ -92,7 +90,7 @@ func (c Connecting) UpdatetimeSlot(t TimeSlot, i int ) error {
 
 func (c Connecting) AddTimeSlot(t TimeSlot) error {
     if result := c.DB.Create(&t);  result.Error != nil {
-        result ErrTimeSlotNotCreated
+        return ErrTimeSlotNotCreated
     }
     return nil
 }
@@ -117,7 +115,6 @@ func (c Connecting) getActiveTimeSlots(id int) (TimeSlots, error){
     }
     fmt.Println(timeslots)
     return timeslots , nil
-
 }
 
 

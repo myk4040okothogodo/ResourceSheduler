@@ -2,7 +2,7 @@ package handlers
 
 import (
     "net/http"
-    "github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data"
+    "github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data"
 )
 
 func ( t *TimeSlots) Create(rw http.ResponseWriter, r *http.Request) {
