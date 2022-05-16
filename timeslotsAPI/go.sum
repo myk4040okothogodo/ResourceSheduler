@@ -99,14 +99,8 @@ github.com/mattn/go-colorable v0.1.6/go.mod h1:u6P/XSegPjTcexA+o6vUJrdnUu04hMope
 github.com/mattn/go-isatty v0.0.5/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
 github.com/mattn/go-isatty v0.0.7/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
 github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
-github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-20220508195426-e727a527918d/go.mod h1:yrhkSjirAKWeYvgVgXOFlTgrCgPNTcyfDmo+9lU6wl4=
-github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-20220510121711-64babcf51887/go.mod h1:yrhkSjirAKWeYvgVgXOFlTgrCgPNTcyfDmo+9lU6wl4=
-github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-20220512143245-87f036e59f74 h1:8Pa2E4t/ziB+0gVOrNr99o+rzIgql0vvgCLQFxqUFi0=
-github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-20220512143245-87f036e59f74/go.mod h1:yrhkSjirAKWeYvgVgXOFlTgrCgPNTcyfDmo+9lU6wl4=
-github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data v0.0.0-20220510121711-64babcf51887 h1:wlY8AxsGHWbzSv9dA79h2qb6YHcU/tz1EIFiEtCAFOc=
-github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data v0.0.0-20220510121711-64babcf51887/go.mod h1:WDPUAzyu3aTFeLLqTjjf6LoWjpn23d6+zwzlRbw4SpM=
-github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/handlers v0.0.0-20220512143245-87f036e59f74 h1:XP07Gs9xwjEtF/wJvTRJKzhOOL3YyOyjaJ5q1XlhmBU=
-github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/handlers v0.0.0-20220512143245-87f036e59f74/go.mod h1:7l3khnHGeN71831aQiCL112nAQPlg4cDSEHdrDQLNK8=
+github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data v0.0.0-20220513121001-9ffa4ba3ef16 h1:l5zA+JjX0eQgFuuJsohZNHBQCH3lXP81Llh2nymi2FU=
+github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data v0.0.0-20220513121001-9ffa4ba3ef16/go.mod h1:OpK6tbTONwi5OZ32cIpgbOiLZEXindCWncY42TcDn7w=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=

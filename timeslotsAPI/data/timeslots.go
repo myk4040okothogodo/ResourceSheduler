@@ -4,7 +4,6 @@ import (
     "fmt"
     "time"
     "gorm.io/gorm"
-    "gorm.io/driver/postgres"
     "github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data"
 )
 // ErrTimeSlot is an error raised when then timeslot has not been found
@@ -60,7 +59,7 @@ type Payment struct {
     timeslot *TimeSlot   `json: "timeslot", validate: "required"`
     // it's related to what asset 
     // required : true
-    asset   *Asset    `json: "asset", validate: "required"`
+    asset   data.Asset    `json: "asset", validate: "required"`
     // its related to which owner
     // required : true
     //owner  *User      `json: "owner",  validate: "required"`
@@ -68,10 +67,10 @@ type Payment struct {
 
 
 //Timeslots defines a slice of Timeplot
-type Timeslots []*TimeSlot
+type TimeSlots []*TimeSlot
 
 //GetTimeSlots return all timeslots from the database
-func (c Connecting)GetTimeSlots() (TimeSlots, error) {
+func (c data.Connecting)GetTimeSlots() (TimeSlots, error) {
     var timeslots TimeSlots
     if result := c.DB.Find(&timeslots); result.Error  != nil {
         return nil, ErrTimeSlotsNotFound
@@ -80,7 +79,7 @@ func (c Connecting)GetTimeSlots() (TimeSlots, error) {
 }
 
 
-func (c Connecting) UpdatetimeSlot(t TimeSlot, i int ) error {
+func (c data.Connecting) UpdatetimeSlot(t TimeSlot, i int ) error {
     if result := c.DB.First(&t, i); result.Error != nil {
         return ErrTimeSlotNotFound
     }
@@ -88,7 +87,7 @@ func (c Connecting) UpdatetimeSlot(t TimeSlot, i int ) error {
     return nil
 }
 
-func (c Connecting) AddTimeSlot(t TimeSlot) error {
+func (c data.Connecting) AddTimeSlot(t TimeSlot) error {
     if result := c.DB.Create(&t);  result.Error != nil {
         return ErrTimeSlotNotCreated
     }
@@ -97,7 +96,7 @@ func (c Connecting) AddTimeSlot(t TimeSlot) error {
 
 
 // DeleteTimeslot deletes a Timeslot from  the database
-func (c Connecting) DeleteTimeSlot(id int) error {
+func (c data.Connecting) DeleteTimeSlot(id int) error {
     var timeslot TimeSlot;
     if result := c.DB.First(&timeslots, id); result.Error != nil {
        return ErrTimeSlotNotDeleted 
@@ -108,7 +107,7 @@ func (c Connecting) DeleteTimeSlot(id int) error {
 }
 
 
-func (c Connecting) getActiveTimeSlots(id int) (TimeSlots, error){
+func (c data.Connecting) getActiveTimeSlots(id int) (TimeSlots, error){
     var timeslots TimeSlots
     if result := c.DB.Where("? BETWEEN ? AND ?  AND owner.id = ?",time.Now().Format("2006-01-02 15:4:5"), starttime, endtime, id).Find(&timeslots) ; result.Error != nil {
         return nil, ErrActiveTimeSlotNotFound

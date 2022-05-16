@@ -2,11 +2,15 @@ module github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI
 
 go 1.17
 
+replace github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/handlers => ./handlers
+
+replace github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data => ../assetsAPI/data
+
 require (
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
-	github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-20220512143245-87f036e59f74
-	github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/handlers v0.0.0-20220512143245-87f036e59f74
+	github.com/myk4040okothogodo/ResourceSheduler/assetsAPI/data v0.0.0-20220513121001-9ffa4ba3ef16
+	github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/handlers v0.0.0-00010101000000-000000000000
 )
 
 require (
@@ -25,7 +29,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
-	github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data v0.0.0-20220510121711-64babcf51887 // indirect
+	github.com/myk4040okothogodo/ResourceSheduler/timeslotsAPI/data v0.0.0-20220513121001-9ffa4ba3ef16 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gorm.io/driver/postgres v1.3.5 // indirect
